@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+
+
+<!-- Grid row -->
+<div class="flex-row mb-3">
+
+  <!-- Grid column -->
+
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <a href={%url "display_routers"%} type="button" class="btn btn-default">Routers</a>
+        <a href={%url "display_switches"%} type="button" class="btn btn-default">Switches</a>
+        <a href={%url "display_firewalls"%} type="button" class="btn btn-default">Firewalls</a>
+        <a href={%url "display_loadbalancers"%} type="button" class="btn btn-default">Loadbalancers</a>
+      </div>
+    </div>
+
+</div>
+  <!-- Grid column -->
+
+
+
+
+
+<h4> You are viewing {{ header }}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th> id</th>
+      <th> Hostname</th>
+      <th> IP Address</th>
+      <th> Datacenter</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for item in items %}
+
+    <tr>
+      <td>{{ item.pk }}</td>
+      <td><a href="{% url 'device_interfaces' %}">{{ item.hostname }}</a></td>
+      <td>{{ item.ipadd }}</td>
+      <td>{{ item.datacenter }}</td>
+    </tr>
+
+    {% endfor %}
+  </tbody>
+
+</table>
+
+
+{% endblock %}
