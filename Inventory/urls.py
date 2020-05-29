@@ -12,5 +12,5 @@ urlpatterns = [
     path("switch_list/", Switch_list, name="Switch_list"),
     path("firewall_list/", Firewall_list, name="Firewall_list"),
     path("loadbalancer_list/", Loadbalancer_list, name="Loadbalancer_list"),
-    path("device_interfaces/", device_interfaces, name="device_interfaces"),
+    path("device_interfaces", device_interfaces, name="device_interfaces"),
 ]

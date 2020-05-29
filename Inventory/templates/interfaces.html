@@ -30,22 +30,23 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th> id</th>
-      <th> Hostname</th>
-      <th> IP Address</th>
-      <th> Datacenter</th>
+      <th> Interface</th>
+      <th> Description</th>
+      <th> Admin Status</th>
+      <th> Protocol Status</th>
     </tr>
   </thead>
 
   <tbody>
-    {% for item in items %}
+    
+    {% for key ,value in interfaces.items %}
     
     <tr>
-      <td>{{ item.pk }}</td>
-      <td><a href="{% url 'device_interfaces' %}?ip={{ item.ipadd }}">{{ item.hostname }}</a>
-      </td>
-      <td>{{ item.ipadd }}</td>
-      <td>{{ item.datacenter }}</td>
+      <td>{{ key }} </td>
+      <td>{{ value.description }} </td>
+      <td>{{ value.is_enabled }} </td>
+      <td>{{ value.is_up }} </td>
+      
     </tr>
 
     {% endfor %}
